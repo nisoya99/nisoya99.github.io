@@ -1,3 +1,4 @@
+/* Allgemeines Layout */
 body {
   margin: 0;
   padding: 0;
@@ -17,6 +18,7 @@ header img {
   height: auto;
 }
 
+/* Navigation */
 nav {
   display: flex;
   justify-content: center;
@@ -36,6 +38,7 @@ nav a:hover {
   color: #660000;
 }
 
+/* Hauptinhalt */
 .content {
   max-width: 1000px;
   margin: 0 auto;
@@ -59,13 +62,7 @@ nav a:hover {
   color: #999;
 }
 
-footer {
-  text-align: center;
-  padding: 20px;
-  color: #555;
-  font-size: 0.9rem;
-}
-
+/* Kontakt */
 .contact {
   text-align: center;
   margin-top: 40px;
@@ -81,15 +78,20 @@ footer {
   color: #fff;
 }
 
+/* Footer */
+footer {
+  text-align: center;
+  padding: 20px;
+  color: #555;
+  font-size: 0.9rem;
+}
+
+/* Slider / Bild-Galerie */
 .slider {
   display: flex;
   gap: 10px;
   overflow-x: auto;
   margin: 10px 0;
-}
-
-.slider {
-  display: flex;
   transition: transform 0.3s ease;
   width: 100%;
 }
@@ -97,7 +99,7 @@ footer {
 .slider img {
   min-width: 100%;
   max-width: 100%;
-  border-radius: 8px;
+  border-radius: 0;
   cursor: pointer;
   object-fit: cover;
 }
@@ -142,4 +144,27 @@ footer {
   border: none;
 }
 
+/* Responsives Verhalten */
+@media (max-width: 600px) {
+  nav {
+    flex-direction: column;
+    align-items: center;
+  }
 
+  nav a {
+    margin: 10px 0;
+  }
+
+  .slider img {
+    min-width: 100%;
+  }
+
+  .content {
+    padding: 20px 10px;
+  }
+
+  .contact a {
+    display: block;
+    margin: 10px 0;
+  }
+}

@@ -45,8 +45,7 @@ nav a:hover {
 .post {
   background-color: #111;
   padding: 20px;
-  border: 2px solid #660000;
-  border-radius: 10px;
+  border-radius: 2px;
   margin-bottom: 20px;
 }
 
@@ -89,7 +88,58 @@ footer {
   margin: 10px 0;
 }
 
-.slider img {
-  height: 200px;
-  border-radius: 8px;
+.slider {
+  display: flex;
+  transition: transform 0.3s ease;
+  width: 100%;
 }
+
+.slider img {
+  min-width: 100%;
+  max-width: 100%;
+  border-radius: 8px;
+  cursor: pointer;
+  object-fit: cover;
+}
+
+/* Lightbox */
+.lightbox-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.9);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.lightbox-overlay.active {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.lightbox-overlay img {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 8px;
+  box-shadow: 0 0 20px rgba(102, 0, 0, 0.6);
+}
+
+.lightbox-close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  color: #fff;
+  font-size: 2rem;
+  cursor: pointer;
+  background: none;
+  border: none;
+}
+
+

@@ -90,15 +90,13 @@ footer {
 .slider {
   display: flex;
   gap: 10px;
-  overflow-x: auto;
+  flex-wrap: wrap;
   margin: 10px 0;
-  transition: transform 0.3s ease;
-  width: 100%;
 }
 
 .slider img {
-  min-width: 100%;
-  max-width: 100%;
+  width: 25%;
+  height: auto;
   border-radius: 0;
   cursor: pointer;
   object-fit: cover;

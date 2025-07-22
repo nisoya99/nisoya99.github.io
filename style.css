@@ -45,16 +45,16 @@ nav a:hover {
   padding: 40px 20px;
 }
 
-/* Masonry Layout für Posts */
+/* --- MASONRY LAYOUT --- */
 #post-container {
-  column-count: 4;
+  column-count: 3;
   column-gap: 20px;
 }
 
 .post {
   background-color: #111;
   padding: 20px;
-  border-radius: 6px;
+  border-radius: 2px;
   margin: 0 0 20px;
   display: inline-block;
   width: 100%;
@@ -72,42 +72,28 @@ nav a:hover {
   color: #999;
 }
 
-/* Bild-Slider innerhalb eines Posts */
+/* --- SLIDER --- */
 .slider {
-  margin: 10px 0;
-}
-
-.slider img {
+  overflow-x: auto;
+  overflow-y: hidden;
   width: 100%;
+  margin: 10px 0;
+  border-radius: 4px;
+}
+
+.slide-track {
+  display: flex;
+  gap: 10px;
+}
+
+.slide-track img {
   height: auto;
-  border-radius: 2px;
-  cursor: pointer;
+  width: 100%;
+  max-width: 300px;
+  border-radius: 4px;
   object-fit: cover;
-  margin-bottom: 10px;
-}
-
-/* Kontakt */
-.contact {
-  text-align: center;
-  margin-top: 40px;
-}
-
-.contact a {
-  color: #660000;
-  text-decoration: none;
-  margin: 0 10px;
-}
-
-.contact a:hover {
-  color: #fff;
-}
-
-/* Footer */
-footer {
-  text-align: center;
-  padding: 20px;
-  color: #555;
-  font-size: 0.9rem;
+  cursor: pointer;
+  flex-shrink: 0;
 }
 
 /* Lightbox */
@@ -150,14 +136,32 @@ footer {
   border: none;
 }
 
-/* Responsive Verhalten */
-@media (max-width: 1200px) {
-  #post-container {
-    column-count: 3;
-  }
+/* Kontakt */
+.contact {
+  text-align: center;
+  margin-top: 40px;
 }
 
-@media (max-width: 900px) {
+.contact a {
+  color: #660000;
+  text-decoration: none;
+  margin: 0 10px;
+}
+
+.contact a:hover {
+  color: #fff;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 20px;
+  color: #555;
+  font-size: 0.9rem;
+}
+
+/* --- RESPONSIVES VERHALTEN --- */
+@media (max-width: 1200px) {
   #post-container {
     column-count: 2;
   }
@@ -176,15 +180,20 @@ footer {
   }
 
   nav {
-    flex-wrap: wrap;
-    gap: 10px;
+    display: flex;
+    flex-wrap: nowrap;
     justify-content: center;
+    gap: 10px;
     text-align: center;
   }
 
   nav a {
     margin: 5px 10px;
     white-space: nowrap;
+  }
+
+  .slider img {
+    min-width: 25%;
   }
 
   .content {

@@ -41,7 +41,9 @@ nav a:hover {
 /* Hauptinhalt */
 .content {
   /* max-width: 1000px;*/
-  display: flex;
+  max-width: 300px
+  width: auto;
+  height: 20px;
   margin: 0 auto;
   padding: 40px 20px;
 }

@@ -38,8 +38,43 @@ nav a:hover {
   color: #660000;
 }
 
+/* Flexbox für Posts */
+        .content {
+            max-width: 1200px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 40px 20px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .post {
+            background-color: #111;
+            padding: 20px;
+            width: 300px; /* feste Breite */
+            transition: transform 0.3s;
+            box-sizing: border-box;
+        }
+
+        .post:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 0 #660000;
+        }
+
+        .post h2 {
+            margin-top: 0;
+            color: #660000;
+        }
+
+        .post img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
 /* Hauptinhalt */
-.content {
+/*.content {
   max-width: 1000px;
   margin: 0 auto;
   padding: 40px 20px;
@@ -55,7 +90,7 @@ nav a:hover {
 .post h2 {
   margin-top: 0;
   color: #660000;
-}
+}*/
 
 .post .date {
   font-size: 0.8rem;

@@ -147,11 +147,15 @@ footer {
 /* Responsives Verhalten */
 @media (max-width: 600px) {
   nav {
-    align-items: center;
+   display: flex;
+   flex-wrap: nowrap;
+   justify-content: center;
+   gap: 10px;
   }
 
   nav a {
-    margin: 10px 0;
+   margin: 0;
+   white-space: nowrap;
   }
 
   .slider img {

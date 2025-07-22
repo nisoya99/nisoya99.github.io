@@ -149,15 +149,16 @@ footer {
    flex-wrap: nowrap;
    justify-content: center;
    gap: 10px;
+   text-align: center;
   }
 
   nav a {
-   margin: 0;
+   margin: 5px 10px;
    white-space: nowrap;
   }
 
   .slider img {
-    min-width: 100%;
+    min-width: 25%;
   }
 
   .content {

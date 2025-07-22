@@ -144,6 +144,10 @@ footer {
 
 /* Responsives Verhalten */
 @media (max-width: 600px) {
+  header img {
+    justify-content: center;    
+  }
+  
   nav {
    display: flex;
    flex-wrap: nowrap;

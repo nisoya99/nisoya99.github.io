@@ -45,21 +45,11 @@ nav a:hover {
   padding: 40px 20px;
 }
 
-/* --- MASONRY LAYOUT --- */
-#post-container {
-  column-count: 3;
-  column-gap: 20px;
-}
-
 .post {
   background-color: #111;
   padding: 20px;
   border-radius: 2px;
-  margin: 0 0 20px;
-  display: inline-block;
-  width: 100%;
-  break-inside: avoid;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+  margin-bottom: 20px;
 }
 
 .post h2 {
@@ -72,28 +62,44 @@ nav a:hover {
   color: #999;
 }
 
-/* --- SLIDER --- */
-.slider {
-  overflow-x: auto;
-  overflow-y: hidden;
-  width: 100%;
-  margin: 10px 0;
-  border-radius: 4px;
+/* Kontakt */
+.contact {
+  text-align: center;
+  margin-top: 40px;
 }
 
-.slide-track {
+.contact a {
+  color: #660000;
+  text-decoration: none;
+  margin: 0 10px;
+}
+
+.contact a:hover {
+  color: #fff;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 20px;
+  color: #555;
+  font-size: 0.9rem;
+}
+
+/* Slider / Bild-Galerie */
+.slider {
   display: flex;
   gap: 10px;
+  flex-wrap: wrap;
+  margin: 10px 0;
 }
 
-.slide-track img {
+.slider img {
+  width: 25%;
   height: auto;
-  width: 100%;
-  max-width: 300px;
-  border-radius: 4px;
-  object-fit: cover;
+  border-radius: 0;
   cursor: pointer;
-  flex-shrink: 0;
+  object-fit: cover;
 }
 
 /* Lightbox */
@@ -136,37 +142,7 @@ nav a:hover {
   border: none;
 }
 
-/* Kontakt */
-.contact {
-  text-align: center;
-  margin-top: 40px;
-}
-
-.contact a {
-  color: #660000;
-  text-decoration: none;
-  margin: 0 10px;
-}
-
-.contact a:hover {
-  color: #fff;
-}
-
-/* Footer */
-footer {
-  text-align: center;
-  padding: 20px;
-  color: #555;
-  font-size: 0.9rem;
-}
-
-/* --- RESPONSIVES VERHALTEN --- */
-@media (max-width: 1200px) {
-  #post-container {
-    column-count: 2;
-  }
-}
-
+/* Responsives Verhalten */
 @media (max-width: 600px) {
   header {
     display: flex;
@@ -178,18 +154,18 @@ footer {
     display: block;
     margin: 0 auto;
   }
-
+  
   nav {
-    display: flex;
-    flex-wrap: nowrap;
-    justify-content: center;
-    gap: 10px;
-    text-align: center;
+   display: flex;
+   flex-wrap: nowrap;
+   justify-content: center;
+   gap: 10px;
+   text-align: center;
   }
 
   nav a {
-    margin: 5px 10px;
-    white-space: nowrap;
+   margin: 5px 10px;
+   white-space: nowrap;
   }
 
   .slider img {
@@ -203,9 +179,5 @@ footer {
   .contact a {
     display: block;
     margin: 10px 0;
-  }
-
-  #post-container {
-    column-count: 1;
   }
 }

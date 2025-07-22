@@ -3,8 +3,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const filterTag = container?.dataset.filter || null;
 
   const posts = [
-    "paris-july25.html" //, und dann unten den weiteren Post einfügen
-    // weitere Posts hier eintragen
+    "paris-july25.html",
+    "nishikigoi-2023.html" //, und dann unten den weiteren Post einfügen
   ];
 
   posts.forEach(async (filename) => {

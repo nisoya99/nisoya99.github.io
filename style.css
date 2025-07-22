@@ -53,7 +53,9 @@ nav a:hover {
 .post {
    background-color: #111;
    padding: 20px;
-   width: 300px; /* feste Breite */
+   width: 30%;
+  min-width: 300px;
+  max-widht: 500px;
    height: auto;
    transition: transform 0.3s;
    box-sizing: border-box;
@@ -71,9 +73,10 @@ nav a:hover {
 }      
 
 .post img {
-   max-width: 100%;
+   width: 100%;
    height: auto;
    border-radius: 5px;
+  object-fit: cover;
 }
 /* Hauptinhalt */
 /*.content {

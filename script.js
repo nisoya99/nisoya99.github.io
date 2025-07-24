@@ -19,6 +19,17 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 });
+
+// Slider
+document.querySelectorAll('.slider').forEach(slider => {
+  const images = slider.querySelectorAll('img');
+  if (images.length > 1) {
+    slider.classList.add('multiple');
+  } else {
+    slider.classList.add('single');
+  }
+});
+
 // --- LIGHTBOX ---
 const lightbox = document.createElement("div");
 lightbox.className = "lightbox-overlay";

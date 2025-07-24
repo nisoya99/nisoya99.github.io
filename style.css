@@ -127,7 +127,7 @@ footer {
 }
 
 /* Slider / Bild-Galerie */
-/*.slider {
+.slider {
   display: flex;
   gap: 10px;
   flex-wrap: wrap;
@@ -140,7 +140,8 @@ footer {
   border-radius: 0;
   cursor: pointer;
   object-fit: cover;
-}*/
+}
+
 /* Nur ein Bild: 100% Breite */
 .slider.single img {
   width: 100%;

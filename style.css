@@ -39,8 +39,8 @@ nav a:hover {
 }
 
 .content {
-   max-width: 1000px;
-   width: 100%;
+   max-width: 800px;
+   width: 50%;
    margin: 0 auto;
    padding: 40px 20px;
 }

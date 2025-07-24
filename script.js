@@ -1,8 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
   const container = document.getElementById("post-container");
-  if (!container) return;
-
-  const filterTag = container.dataset.filter || null;
+  const filterTag = container?.dataset.filter || null;
 
   const posts = [
     "paris-2025.html",
@@ -50,19 +48,21 @@ document.addEventListener("DOMContentLoaded", () => {
         fitWidth: true
       });
 
+      // ➕ Re-Layout bei Fenstergröße-Änderung
       window.addEventListener("resize", () => {
         msnry.layout();
       });
     });
   });
 });
+
 // --- LIGHTBOX ---
 const lightbox = document.createElement("div");
 lightbox.className = "lightbox-overlay";
-lightbox.innerHTML = 
+lightbox.innerHTML = `
   <button class="lightbox-close">&times;</button>
   <img src="" alt="Preview" />
-;
+`;
 document.body.appendChild(lightbox);
 
 const lightboxImg = lightbox.querySelector("img");

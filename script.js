@@ -1,6 +1,8 @@
 document.addEventListener("DOMContentLoaded", () => {
   const container = document.getElementById("post-container");
-  const filterTag = container?.dataset.filter || null;
+  if (!container) return;
+
+  const filterTag = container.dataset.filter || null;
 
   const posts = [
     "paris-2025.html",
@@ -39,7 +41,6 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     })
   ).then(() => {
-    
     // --- MASONRY INITIALISIEREN ---
     imagesLoaded(container, () => {
       const msnry = new Masonry(container, {
@@ -49,34 +50,9 @@ document.addEventListener("DOMContentLoaded", () => {
         fitWidth: true
       });
 
-      // ➕ Re-Layout bei Fenstergröße-Änderung
       window.addEventListener("resize", () => {
         msnry.layout();
       });
     });
   });
-});
-
-// --- LIGHTBOX ---
-const lightbox = document.createElement("div");
-lightbox.className = "lightbox-overlay";
-lightbox.innerHTML = `
-  <button class="lightbox-close">&times;</button>
-  <img src="" alt="Preview" />
-`;
-document.body.appendChild(lightbox);
-
-const lightboxImg = lightbox.querySelector("img");
-const closeBtn = lightbox.querySelector(".lightbox-close");
-
-document.addEventListener("click", (e) => {
-  if (e.target.matches(".slider img")) {
-    lightboxImg.src = e.target.src;
-    lightbox.classList.add("active");
-  }
-
-  if (e.target === lightbox || e.target === closeBtn) {
-    lightbox.classList.remove("active");
-    lightboxImg.src = "";
-  }
 });

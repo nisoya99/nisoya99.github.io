@@ -49,10 +49,9 @@ nav a:hover {
   background-color: #111;
   padding: 20px;
   width: 25%;
-  max-width: 350px;
+  max-width: 250px;
   margin-bottom: 20px;
   box-sizing: border-box;
-  float: left;
   transition: transform 0.3s;
 }
 

@@ -49,8 +49,8 @@ nav a:hover {
 .post {
   background-color: #111;
   padding: 20px;
-  max-widht: 400px;
   width: 100%;
+  max-widht: 350px;
   margin-bottom: 20px;
   box-sizing: border-box;
   transition: transform 0.3s;

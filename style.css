@@ -69,7 +69,6 @@ nav a:hover {
 .post img {
    width: 100%;
    height: auto;
-   border-radius: 5px;
    object-fit: cover;
 }
 /* Hauptinhalt */

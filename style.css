@@ -44,21 +44,16 @@ nav a:hover {
    width: 100%;
    margin: 0 auto;
    padding: 40px 20px;
-   display: flex;
-   flex-wrap: wrap;
-   gap: 20px;
-   justify-content: center;
 }
 
 .post {
-   background-color: #111;
-   padding: 20px;
-   width: 30%;
-  min-width: 300px;
-  max-widht: 500px;
-   height: auto;
-   transition: transform 0.3s;
-   box-sizing: border-box;
+  background-color: #111;
+  padding: 20px;
+  width: 100%;
+  max-width: 500px;
+  margin-bottom: 20px;
+  box-sizing: border-box;
+  transition: transform 0.3s;
 }
 
 .post:hover {
@@ -156,6 +151,8 @@ footer {
   overflow-x: auto;
   gap: 10px;
   scroll-snap-type: x mandatory;
+  scrollbar-width: thin;
+  scrollbar-color: #660000 #111;
 }
 
 .slider.multiple img {
@@ -166,6 +163,15 @@ footer {
   object-fit: cover;
   scroll-snap-align: start;
   border-radius: 5px;
+}
+
+.slider.multiple::-webkit-scrollbar {
+  height: 8px;
+}
+
+.slider.multiple::-webkit-scrollbar-thumb {
+  background-color: #660000;
+  border-radius: 10px;
 }
 
 /* Lightbox */

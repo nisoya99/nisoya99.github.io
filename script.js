@@ -47,6 +47,10 @@ document.addEventListener("DOMContentLoaded", () => {
         percentPosition: true,
         fitWidth: true
       });
+      // ➕ Re-Layout bei Fenstergröße-Änderung
+      window.addEventListener("resize", () => {
+        msnry.layout();
+      });
     });
   });
 });

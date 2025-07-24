@@ -38,7 +38,6 @@ nav a:hover {
   color: #660000;
 }
 
-/* Flexbox für Posts */
 .content {
    max-width: 1200px;
    width: 100%;
@@ -50,7 +49,7 @@ nav a:hover {
   background-color: #111;
   padding: 20px;
   width: 100%;
-  max-widht: 350px;
+  max-width: 350px;
   margin-bottom: 20px;
   box-sizing: border-box;
   transition: transform 0.3s;

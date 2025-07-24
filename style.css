@@ -55,9 +55,10 @@ nav a:hover {
 .post {
   background-color: #111;
   padding: 20px;
-  width: calc(25% - 50px);
+  width: 25%;
   max-width: 350px;
   margin-bottom: 20px;
+  margin-right: 50px;
   box-sizing: border-box;
   transition: transform 0.3s;
 }

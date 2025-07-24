@@ -43,7 +43,7 @@ document.addEventListener("DOMContentLoaded", () => {
     imagesLoaded(container, () => {
       new Masonry(container, {
         itemSelector: '.post',
-        gutter: 0,
+        gutter: 20,
         percentPosition: true,
         fitWidth: true
       });

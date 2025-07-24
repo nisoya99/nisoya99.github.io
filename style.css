@@ -152,10 +152,14 @@ footer {
   gap: 10px;
   scroll-snap-type: x mandatory;
   scrollbar-width: thin;
-  scrollbar-color: #660000 #fff;
+  scrollbar-color: #660000 transparent;
   scroll-behavior: smooth;
   padding-bottom: 10px;
   flex-wrap: nowrap; /* wichtig: nicht umbrechen */
+}
+
+.slider.multiple:hover {
+  scrollbar-color: #fff transparent;
 }
 
 .slider.multiple img {

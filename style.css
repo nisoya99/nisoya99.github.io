@@ -39,23 +39,23 @@ nav a:hover {
 }
 
 .content {
-  justify-content: center;
-  max-width: 1200px;
+  max-width: 100%;
   width: 100%;
   margin: 0 auto;
   padding: 40px 20px;
+  box-sizing: border-box;
 }
 
 #post-container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 20px;
+  padding: 0 10px;
 }
 
 .post {
   background-color: #111;
   padding: 20px;
-  width: 25%;
+  width: 100%; /*25*/
   max-width: 300px;
   margin-bottom: 20px;
   box-sizing: border-box;

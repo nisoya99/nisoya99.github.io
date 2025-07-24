@@ -4,30 +4,42 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const posts = [
     "paris-july25.html",
-    "nishikigoi-2023.html" //, und dann unten den weiteren Post einfügen
+    "nishikigoi-2023.html"
   ];
 
-  posts.forEach(async (filename) => {
-    const res = await fetch(`posts/${filename}`);
-    const html = await res.text();
-    const wrapper = document.createElement("div");
-    wrapper.innerHTML = html;
-    const post = wrapper.querySelector(".post");
+  Promise.all(
+    posts.map(async (filename) => {
+      const res = await fetch(`posts/${filename}`);
+      const html = await res.text();
+      const wrapper = document.createElement("div");
+      wrapper.innerHTML = html;
+      const post = wrapper.querySelector(".post");
 
-    if (!filterTag || post.dataset.tag === filterTag) {
-      container.appendChild(post);
-    }
+      if (!filterTag || post.dataset.tag === filterTag) {
+        container.appendChild(post);
+
+        // --- SLIDER-KLASSE NACH EINBINDUNG HINZUFÜGEN ---
+        const slider = post.querySelector(".slider");
+        if (slider) {
+          const images = slider.querySelectorAll("img");
+          if (images.length > 1) {
+            slider.classList.add("multiple");
+          } else {
+            slider.classList.add("single");
+          }
+        }
+      }
+    })
+  ).then(() => {
+    // --- MASONRY INITIALISIEREN ---
+    imagesLoaded(container, () => {
+      new Masonry(container, {
+        itemSelector: '.post',
+        gutter: 20,
+        fitWidth: true
+      });
+    });
   });
-});
-
-// Slider
-document.querySelectorAll('.slider').forEach(slider => {
-  const images = slider.querySelectorAll('img');
-  if (images.length > 1) {
-    slider.classList.add('multiple');
-  } else {
-    slider.classList.add('single');
-  }
 });
 
 // --- LIGHTBOX ---
@@ -48,12 +60,8 @@ document.addEventListener("click", (e) => {
     lightbox.classList.add("active");
   }
 
-  if (
-    e.target === lightbox ||
-    e.target === closeBtn
-  ) {
+  if (e.target === lightbox || e.target === closeBtn) {
     lightbox.classList.remove("active");
     lightboxImg.src = "";
   }
 });
-

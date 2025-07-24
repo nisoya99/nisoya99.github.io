@@ -140,7 +140,6 @@ footer {
   width: 100%;
   height: auto;
   object-fit: cover;
-  border-radius: 5px;
 }
 
 /* Mehrere Bilder: horizontal scrollbarer Slider */
@@ -167,7 +166,6 @@ footer {
   height: auto;
   object-fit: cover;
   scroll-snap-align: start;
-  border-radius: 5px;
 }
 
 .slider.multiple::-webkit-scrollbar {
@@ -204,7 +202,6 @@ footer {
 .lightbox-overlay img {
   max-width: 90%;
   max-height: 90%;
-  border-radius: 8px;
   box-shadow: 0 0 20px rgba(102, 0, 0, 0.6);
 }
 

@@ -56,3 +56,26 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 });
+// --- LIGHTBOX ---
+const lightbox = document.createElement("div");
+lightbox.className = "lightbox-overlay";
+lightbox.innerHTML = 
+  <button class="lightbox-close">&times;</button>
+  <img src="" alt="Preview" />
+;
+document.body.appendChild(lightbox);
+
+const lightboxImg = lightbox.querySelector("img");
+const closeBtn = lightbox.querySelector(".lightbox-close");
+
+document.addEventListener("click", (e) => {
+  if (e.target.matches(".slider img")) {
+    lightboxImg.src = e.target.src;
+    lightbox.classList.add("active");
+  }
+
+  if (e.target === lightbox || e.target === closeBtn) {
+    lightbox.classList.remove("active");
+    lightboxImg.src = "";
+  }
+});

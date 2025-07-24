@@ -152,7 +152,7 @@ footer {
   gap: 10px;
   scroll-snap-type: x mandatory;
   scrollbar-width: thin;
-  scrollbar-color: #660000 #111;
+  scrollbar-color: #660000 #fff;
   scroll-behavior: smooth;
   padding-bottom: 10px;
   flex-wrap: nowrap; /* wichtig: nicht umbrechen */

@@ -39,14 +39,16 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     })
   ).then(() => {
+    
     // --- MASONRY INITIALISIEREN ---
     imagesLoaded(container, () => {
-      new Masonry(container, {
+      const msnry = new Masonry(container, {
         itemSelector: '.post',
         gutter: 20,
         percentPosition: true,
         fitWidth: true
       });
+
       // ➕ Re-Layout bei Fenstergröße-Änderung
       window.addEventListener("resize", () => {
         msnry.layout();

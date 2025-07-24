@@ -3,7 +3,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const filterTag = container?.dataset.filter || null;
 
   const posts = [
-    "paris-july25.html",
+    "paris-2025.html",
+    "songoku-2023.html",
     "nishikigoi-2023.html"
   ];
 

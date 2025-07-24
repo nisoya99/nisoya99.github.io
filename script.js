@@ -44,6 +44,7 @@ document.addEventListener("DOMContentLoaded", () => {
       new Masonry(container, {
         itemSelector: '.post',
         gutter: 20,
+        percentPosition: true,
         fitWidth: true
       });
     });

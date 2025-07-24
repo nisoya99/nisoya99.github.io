@@ -39,10 +39,11 @@ nav a:hover {
 }
 
 .content {
-   max-width: 1200px;
-   width: 100%;
-   margin: 0 auto;
-   padding: 40px 20px;
+  justify-content: center;
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 40px 20px;
 }
 
 #post-container {
@@ -57,7 +58,6 @@ nav a:hover {
   width: 25%;
   max-width: 300px;
   margin-bottom: 20px;
-  margin-right: 250px;
   box-sizing: border-box;
   transition: transform 0.3s;
 }

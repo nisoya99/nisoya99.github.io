@@ -4,8 +4,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const posts = [
     "paris-2025.html",
+    "line-2024.html",
     "songoku-2023.html",
-    "nishikigoi-2023.html"
+    "nissan-2022.html",
+    "nishikigoi-2022.html",
+    "rihanna-2021.html",
+    "tupac-2021.html",
+    "miley-2016.html",
+    "marilyn-2016.html",
+    "illusion-2015.html"
   ];
 
   Promise.all(

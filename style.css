@@ -260,21 +260,21 @@ footer {
 /* Kleine Smartphones (bis 400px) */
 @media (max-width: 400px) {
   .post {
-    max-width: 100%; /* 1 Spalte */
+    max-width: 90%; /* 1 Spalte */
   }
 }
 
 /* Große Smartphones (401px bis 767px) */
 @media (min-width: 401px) and (max-width: 767px) {
   .post {
-    max-width: 48%; /* 2 Spalten */
+    max-width: 45%; /* 2 Spalten */
   }
 }
 
 /* Tablets (768px – 1023px): 3 Spalten */
 @media (min-width: 768px) and (max-width: 1023px) {
   .post {
-    max-width: 31%;
+    max-width: 28%;
   }
 }
 

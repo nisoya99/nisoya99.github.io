@@ -272,14 +272,14 @@ footer {
 }
 
 /* Laptops (1024px – 1439px): 4 Spalten */
-@media (min-width: 1024px) and (max-width: 1439px) {
+@media (min-width: 1024px) and (max-width: 1599px) {
   .post {
     max-width: 23%;
   }
 }
 
 /* Desktops (ab 1440px): 5 Spalten */
-@media (min-width: 1440px) {
+@media (min-width: 1600px) {
   .post {
     max-width: 18%;
   }

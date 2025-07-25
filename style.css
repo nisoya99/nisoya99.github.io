@@ -195,16 +195,20 @@ nav a:hover {
 
 /* Kontakt */
 .contact {
+  display: flex;
   text-align: center;
+  justify-content: center;
   margin-top: 100px;
   flex-wrap: nowrap;
+  overflow-x: auto;
 }
 
 .contact a {
   color: #660000;
   text-decoration: none;
-  margin: 0 10px;
   white-space: nowrap;
+  flex-shrink: 0;
+  margin: 0 10px;;
 }
 
 .contact a:hover {

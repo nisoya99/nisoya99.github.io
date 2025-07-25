@@ -39,6 +39,12 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     })
   ).then(() => {
+
+    const insertedPosts = container.querySelectorAll(".post");
+    if (insertedPosts.length === 1) {
+      insertedPosts[0].style.maxWidth = "100%";
+    }
+
     // --- MASONRY INITIALISIEREN ---
     imagesLoaded(container, () => {
       const msnry = new Masonry(container, {

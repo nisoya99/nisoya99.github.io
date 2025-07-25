@@ -40,10 +40,9 @@ document.addEventListener("DOMContentLoaded", () => {
     })
   ).then(() => {
 
-    const insertedPosts = container.querySelectorAll(".post");
-    if (insertedPosts.length === 1) {
-      insertedPosts[0].style.flex = '0 0 50%';
-      insertedPosts[0].style.maxWidth = 'none';
+    const posts = document.querySelectorAll("#post-container .post");
+    if (posts.length === 1) {
+      posts[0].style.maxWidth = "50%";
     }
 
     // --- MASONRY INITIALISIEREN ---

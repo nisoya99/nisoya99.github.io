@@ -197,12 +197,14 @@ nav a:hover {
 .contact {
   text-align: center;
   margin-top: 100px;
+  flex-wrap: nowrap;
 }
 
 .contact a {
   color: #660000;
   text-decoration: none;
   margin: 0 10px;
+  white-space: nowrap;
 }
 
 .contact a:hover {
@@ -267,7 +269,7 @@ footer {
 /* Große Smartphones (401px bis 767px) */
 @media (min-width: 401px) and (max-width: 767px) {
   .post {
-    max-width: 45%; /* 2 Spalten */
+    max-width: 40%; /* 2 Spalten */
   }
 }
 

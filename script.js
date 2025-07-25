@@ -42,7 +42,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const insertedPosts = container.querySelectorAll(".post");
     if (insertedPosts.length === 1) {
-      insertedPosts[0].style.maxWidth = "100%";
+      insertedPosts[0].style.maxWidth = "50%";
     }
 
     // --- MASONRY INITIALISIEREN ---

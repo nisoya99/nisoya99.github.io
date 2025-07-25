@@ -243,3 +243,22 @@ footer {
     margin: 10px 0;
   }
 }
+
+@media (max-width: 800px) {
+  .post {
+    max-width: 50%;
+  }
+}
+
+@media (min-width: 800px) and (max-width: 1200px) {
+  .post {
+    max-width: 30%;
+  }
+}
+
+@media (min-width: 1201px) {
+  .post {
+    max-width: 300px;
+  }
+}
+

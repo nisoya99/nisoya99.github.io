@@ -244,15 +244,30 @@ footer {
   }
 }
 
-@media (max-width: 800px) {
+/* Smartphones (bis 767px): 2 Spalten */
+@media (max-width: 767px) {
   .post {
-    max-width: 50%;
+    max-width: 48%;
   }
 }
 
-@media (min-width: 800px) and (max-width: 1200px) {
+/* Tablets (768px – 1023px): 3 Spalten */
+@media (min-width: 768px) and (max-width: 1023px) {
   .post {
-    max-width: 25%;
+    max-width: 31%;
   }
 }
 
+/* Laptops (1024px – 1439px): 4 Spalten */
+@media (min-width: 1024px) and (max-width: 1439px) {
+  .post {
+    max-width: 23%;
+  }
+}
+
+/* Desktops (ab 1440px): 5 Spalten */
+@media (min-width: 1440px) {
+  .post {
+    max-width: 18%;
+  }
+}

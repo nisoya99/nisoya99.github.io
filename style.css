@@ -1,3 +1,12 @@
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
 /* Allgemeines Layout */
 body {
   margin: 0;
@@ -46,9 +55,13 @@ nav a:hover {
 }
 
 #post-container {
-  max-width: 1500px;
+  max-width: 1600px;
+  width: 100%;
   margin: 0 auto;
   padding: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .post {

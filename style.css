@@ -257,10 +257,17 @@ footer {
   }
 }
 
-/* Smartphones (bis 767px): 2 Spalten */
-@media (max-width: 767px) {
+/* Kleine Smartphones (bis 400px) */
+@media (max-width: 400px) {
   .post {
-    max-width: 48%;
+    max-width: 100%; /* 1 Spalte */
+  }
+}
+
+/* Große Smartphones (401px bis 767px) */
+@media (min-width: 401px) and (max-width: 767px) {
+  .post {
+    max-width: 48%; /* 2 Spalten */
   }
 }
 

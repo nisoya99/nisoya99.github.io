@@ -6,11 +6,24 @@
   <title>nisoya99</title>
   <link rel="icon" type="image/png" href="assets/favicon.png" />
   <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet" />
   <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
   <script src="https://unpkg.com/imagesloaded@5/imagesloaded.pkgd.min.js"></script>
   <script defer src="script.js"></script>
 </head>
 <body>
+  <!-- Matrix UI Elemente -->
+  <canvas id="matrix-canvas"></canvas>
+  <div id="question-container"></div>
+  <div id="pills">
+    <div class="pill" id="pill-yes" title="Yes">Yes</div>
+    <div class="pill" id="pill-no" title="No">No</div>
+  </div>
+  <div id="response"></div>
+  <button id="yes-button">yes</button>
+  <button id="skip-button" title="Überspringen">x</button>
+
+  <!-- bestehende Seite -->
   <header>
     <img src="assets/logo_font_white.png" alt="nisoya99 logo">
     <p>Frames. Streets. Stories.</p>

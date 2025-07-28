@@ -1,9 +1,12 @@
-html, body, #matrix-container {
-    margin: 0; padding: 0; height: 100%;
+#matrix-container {
+    margin: 0; 
+    padding: 0; 
+    height: 100%;
     background: black;
     overflow: hidden;
     font-family: 'VT323', monospace;
     color: #660000;
+    pointer-events: none;
   }
   #matrix-canvas {
     position: fixed;
@@ -12,7 +15,8 @@ html, body, #matrix-container {
     height: 100vh;
     z-index: 1;
   }
-  #question-container {
+
+#question-container {
     display: none;
     position: fixed;
     top: 40%;

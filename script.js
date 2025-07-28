@@ -1,20 +1,22 @@
 //matrix
-const canvas = document.getElementById('matrix-canvas');
-  const ctx = canvas.getContext('2d');
+const matrixContainer = document.getElementById('matrix-container');
 
-  let columns, drops;
-  const fontSize = 20;
-  const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%^&*()*&^%";
+const canvas = matrixContainer.querySelector('#matrix-canvas');
+const ctx = canvas.getContext('2d');
 
-  function resize() {
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-    columns = Math.floor(canvas.width / fontSize);
-    drops = new Array(columns).fill(0);
-  }
+let columns, drops;
+const fontSize = 20;
+const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%^&*()*&^%";
 
-  window.addEventListener('resize', resize);
-  resize();
+function resize() {
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+  columns = Math.floor(canvas.width / fontSize);
+  drops = new Array(columns).fill(0);
+}
+
+window.addEventListener('resize', resize);
+resize();
 
   function drawMatrix() {
     ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
@@ -43,12 +45,13 @@ const canvas = document.getElementById('matrix-canvas');
   }
   animate();
 
-  const questionContainer = document.getElementById('question-container');
-  const pills = document.getElementById('pills');
-  const pillYes = document.getElementById('pill-yes');
-  const pillNo = document.getElementById('pill-no');
-  const response = document.getElementById('response');
-  const yesButton = document.getElementById('yes-button');
+const questionContainer = matrixContainer.querySelector('#question-container');
+const pills = matrixContainer.querySelector('#pills');
+const pillYes = matrixContainer.querySelector('#pill-yes');
+const pillNo = matrixContainer.querySelector('#pill-no');
+const response = matrixContainer.querySelector('#response');
+const yesButton = matrixContainer.querySelector('#yes-button');
+const skipButton = matrixContainer.querySelector('#skip-button');
 
   let questionShown = false;
   let isTyping = false;
@@ -194,9 +197,11 @@ const canvas = document.getElementById('matrix-canvas');
     window.location.href = "index.html";
   });
 
-  document.getElementById('skip-button').addEventListener('click', () => {
-    window.location.href = "index.html";
-  });
+const skipButton = matrixContainer.querySelector('#skip-button');
+skipButton.addEventListener('click', () => {
+  window.location.href = "index.html";
+});
+
 
 //eigentliche Seite
 document.addEventListener("DOMContentLoaded", () => {

@@ -1,4 +1,3 @@
-//eigentliche Seite
 document.addEventListener("DOMContentLoaded", () => {
   const container = document.getElementById("post-container");
   const filterTag = container?.dataset.filter || null;

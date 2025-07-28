@@ -10,6 +10,12 @@ const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%^&*()*&^%";
 
 function resize() {
   canvas.width = window.innerWidth;
+
+  ctx.fillStyle = 'lime';
+ctx.font = '30px monospace';
+ctx.fillText('Hello Matrix', 100, 100);
+
+  
   canvas.height = window.innerHeight;
   columns = Math.floor(canvas.width / fontSize);
   drops = new Array(columns).fill(0);

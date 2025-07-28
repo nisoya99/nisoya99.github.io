@@ -1,4 +1,4 @@
-html, body {
+html, body, #matrix-container {
     margin: 0; padding: 0; height: 100%;
     background: black;
     overflow: hidden;

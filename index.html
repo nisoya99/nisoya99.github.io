@@ -6,6 +6,11 @@
   <title>nisoya99</title>
   <link rel="icon" type="image/png" href="assets/favicon.png" />
   <link rel="stylesheet" href="style.css" />
+  <script>
+  if (!localStorage.getItem('introShown')) {
+    window.location.href = 'intro.html';
+  }
+</script>
   <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
   <script src="https://unpkg.com/imagesloaded@5/imagesloaded.pkgd.min.js"></script>
   <script defer src="script.js"></script>

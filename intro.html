@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Intro nisoya99</title>
+<link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet" />
+<style>
+  html, body {
+    margin: 0; padding: 0; height: 100%;
+    background: black;
+    overflow: hidden;
+    font-family: 'VT323', monospace;
+    color: #660000;
+  }
+  #matrix-canvas {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1;
+  }
+  #question-container {
+    display: none;
+    position: fixed;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #660000;
+    font-size: 1.8rem;
+    z-index: 10;
+    max-width: 90vw;
+    text-align: center;
+    font-family: 'VT323', monospace;
+    white-space: pre-wrap;
+  }
+  #question-container .cursor {
+    display: inline-block;
+    color: #660000;
+    margin-left: 2px;
+    animation: blink 1s steps(2, start) infinite;
+  }
+  @keyframes blink {
+    0%, 100% { opacity: 1; }
+    50%      { opacity: 0; }
+  }
+  #pills {
+    display: none;
+    position: fixed;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%, 0);
+    gap: 40px;
+    z-index: 10;
+    justify-content: center;
+  }
+  .pill {
+    position: relative;
+    width: 110px;
+    height: 40px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-family: 'VT323', monospace;
+    font-weight: bold;
+    font-size: 1.3rem;
+    color: white;
+    user-select: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow:
+      0 8px 15px rgba(0,0,0,0.9),
+      inset 0 3px 5px rgba(255,255,255,0.15);
+    transition: transform 0.2s ease;
+    background: linear-gradient(145deg, #b32424, #660000);
+  }
+  #pill-yes {
+    background:
+      linear-gradient(145deg, #ff4d4d, #660000);
+  }
+  #pill-no {
+    background:
+      linear-gradient(145deg, #4d4dff, #000066);
+  }
+  .pill::before {
+    content: "";
+    position: absolute;
+    top: 6px; left: 10px;
+    width: 70%;
+    height: 15px;
+    background: linear-gradient(135deg, rgba(255,255,255,0.4), rgba(255,255,255,0));
+    border-radius: 20px;
+    pointer-events: none;
+  }
+  .pill::after {
+    content: "";
+    position: absolute;
+    bottom: 6px; right: 10px;
+    width: 60%;
+    height: 8px;
+    background: linear-gradient(315deg, rgba(0,0,0,0.7), rgba(0,0,0,0));
+    border-radius: 20px;
+    pointer-events: none;
+  }
+  .pill:hover {
+    transform: scale(1.1) translateZ(10px);
+    box-shadow:
+      0 12px 25px rgba(0,0,0,1),
+      inset 0 5px 10px rgba(255,255,255,0.25);
+  }
+  #response {
+    display: none;
+    position: fixed;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #660000;
+    font-size: 1.8rem;
+    max-width: 90vw;
+    text-align: center;
+    z-index: 10;
+    font-family: 'VT323', monospace;
+    white-space: pre-wrap;
+    opacity: 1;
+    transition: opacity 2s ease;
+  }
+  #yes-button {
+    display: none;
+    position: fixed;
+    margin-top: 20px;
+    bottom: 30%;
+    left: 50%;
+    transform: translateX(-50%);
+    color: white;
+    font-family: 'VT323', monospace;
+    font-size: 1.8rem;
+    cursor: pointer;
+    user-select: none;
+    z-index: 20;
+    background: none;
+    border: none;
+    padding: 0;
+    outline: none;
+  }
+  #yes-button:hover {
+    color:#660000;
+  }
+  #skip-button {
+    position: fixed;
+    top: 10px;
+    right: 15px;
+    color: #660000;
+    font-size: 1.8rem;
+    font-family: 'VT323', monospace;
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 100;
+    transition: color 0.5s ease;
+  }
+  #skip-button:hover {
+    color: white;
+  }
+  
+ @keyframes flicker {
+  0%, 100% { opacity: 1; }
+  10% { opacity: 0.8; }
+  20% { opacity: 1; }
+  30% { opacity: 0.6; }
+  40% { opacity: 1; }
+  50% { opacity: 0.7; }
+  60% { opacity: 1; }
+  70% { opacity: 0.5; }
+  80% { opacity: 1; }
+  90% { opacity: 0.9; }
+}
+
+.flicker {
+  animation: flicker 0.1s infinite;
+}
+#response, #yes-button {
+  transition: opacity 1.5s ease;
+}
+
+@media (max-width: 480px) {
+  #question-container, #response {
+    font-size: 1.3rem;
+    max-width: 98vw;
+  }
+
+  #yes-button {
+    font-size: 1.3rem;
+    bottom: 35%;
+    width: 80vw;
+  }
+}
+
+
+</style>
+</head>
+<body>
+  <canvas id="matrix-canvas"></canvas>
+  <div id="question-container"></div>
+  <div id="pills">
+    <div class="pill" id="pill-yes" title="Yes">Yes</div>
+    <div class="pill" id="pill-no" title="No">No</div>
+  </div>
+  <div id="response"></div>
+  <button id="yes-button">yes</button>
+  <button id="skip-button" title="Skip">x</button>
+
+<script>
+  const canvas = document.getElementById('matrix-canvas');
+  const ctx = canvas.getContext('2d');
+
+  let columns, drops;
+  const fontSize = 20;
+  const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%^&*()*&^%アイウエオキクコサシスセソタチツテトナニネノ";
+
+  function resize() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    columns = Math.ceil(canvas.width / fontSize);
+    drops = new Array(columns).fill(0);
+  }
+
+  window.addEventListener('resize', resize);
+  resize();
+
+  function drawMatrix() {
+    ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    ctx.fillStyle = "#660000";
+    ctx.font = fontSize + "px monospace";
+
+    for (let i = 0; i < drops.length; i++) {
+      const text = letters.charAt(Math.floor(Math.random() * letters.length));
+      const x = i * fontSize;
+      const y = drops[i] * fontSize;
+      ctx.fillText(text, x, y);
+      if (y > canvas.height && Math.random() > 0.975) drops[i] = 0;
+      drops[i]++;
+    }
+  }
+
+  let animationFrameId;
+  let matrixRunning = true;
+
+  function animate() {
+    if(matrixRunning){
+      drawMatrix();
+      animationFrameId = requestAnimationFrame(animate);
+    }
+  }
+  animate();
+
+  const questionContainer = document.getElementById('question-container');
+  const pills = document.getElementById('pills');
+  const pillYes = document.getElementById('pill-yes');
+  const pillNo = document.getElementById('pill-no');
+  const response = document.getElementById('response');
+  const yesButton = document.getElementById('yes-button');
+
+  let questionShown = false;
+  let isTyping = false;
+  let skipTyping = false;
+
+  const isMobile = window.innerWidth <= 480;
+
+  const questionText = isMobile
+  ? "You feel something, don't you? There is more behind this screen. A fracture in the mask.\n\nDo you want to look deeper into me?"
+  : "You feel something, don't you?\nThere is more behind this screen. A fracture in the mask.\n\nDo you want to look deeper into me?"; 
+
+  function typeText(element, text, callback) {
+    let i = 0;
+    element.innerHTML = '';
+    element.style.display = 'block';
+    element.style.opacity = '1';
+    isTyping = true;
+    skipTyping = false;
+
+    function type() {
+      if (skipTyping) {
+        element.innerHTML = text.replace(/\n/g, "<br>") + '<span class="cursor">|</span>';
+        isTyping = false;
+        skipTyping = false;
+        if (callback) callback();
+        return;
+      }
+      if (i < text.length) {
+        const char = text.charAt(i);
+        element.innerHTML = element.innerHTML.replace(/<span class="cursor">.*?<\/span>/, '');
+        element.innerHTML += (char === "\n" ? "<br>" : char) + '<span class="cursor">|</span>';
+        i++;
+        setTimeout(type, 60);
+      } else {
+        isTyping = false;
+        if (callback) callback();
+      }
+    }
+    type();
+  }
+
+  function showQuestion() {
+    if (questionShown) return;
+    questionShown = true;
+    matrixRunning = false;
+    cancelAnimationFrame(animationFrameId);
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    pills.style.display = "none";
+    response.style.display = "none";
+    yesButton.style.display = "none";
+    typeText(questionContainer, questionText, () => {
+      pills.style.display = "flex";
+    });
+  }
+
+  const questionTimeout = setTimeout(() => {
+    showQuestion();
+  }, 3500);
+
+  pillYes.addEventListener('click', () => {
+    pills.style.display = "none";
+    questionContainer.style.display = "none";
+
+    const answerText = isMobile
+    ? "Good. Then follow me.\nMy name is NSY99.\nYou will see what I see — in fragments of travel, frames, photos, stories and quiet moments.\n\nLet's begin."
+    : "Good. Then follow me.\nMy name is NSY99.\nYou will see what I see — in fragments of travel,\nframes, photos, stories and quiet moments.\n\nLet's begin.";
+
+    typeText(response, answerText, () => {
+      yesButton.style.display = "block";
+    });
+  });
+
+  // Shutdown
+  function matrixShutdownAnimation(callback) {
+    let step = 0;
+    const maxSteps = 60;
+    let collapseStep = 0;
+    const collapseMax = canvas.height / fontSize;
+
+    let shutdownDrops = new Array(columns).fill(Math.floor(canvas.height / fontSize));
+
+    function drawShutdown() {
+      ctx.fillStyle = "rgba(0,0,0,0.1)";
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+      ctx.fillStyle = "#ff6666";
+      ctx.font = fontSize + "px monospace";
+
+      for (let i = 0; i < shutdownDrops.length; i++) {
+        const text = letters.charAt(Math.floor(Math.random() * letters.length));
+        const x = i * fontSize;
+        const y = shutdownDrops[i] * fontSize;
+        ctx.fillText(text, x, y);
+      }
+
+      for (let i = 0; i < shutdownDrops.length; i++) {
+        shutdownDrops[i]--;
+        if (shutdownDrops[i] < 0) shutdownDrops[i] = 0;
+      }
+
+      step++;
+      if (step < maxSteps) {
+        requestAnimationFrame(drawShutdown);
+      } else {
+        collapse();
+      }
+    }
+
+    function collapse() {
+      if (collapseStep < collapseMax) {
+        ctx.fillStyle = "rgba(0,0,0,0.2)";
+        ctx.fillRect(0, canvas.height - collapseStep * fontSize, canvas.width, fontSize);
+        collapseStep++;
+        requestAnimationFrame(collapse);
+      } else {
+        if (callback) callback();
+      }
+    }
+
+    drawShutdown();
+  }
+
+  pillNo.addEventListener('click', () => {
+    pills.style.display = "none";
+    questionContainer.style.display = "none";
+
+    const noAnswerText = isMobile
+    ? "Then stay in the safety of what you know. This isn’t for everyone.\nYou chose silence over the unknown.\n\nWho knows — the world is small. We may meet again another time."
+    : "Then stay in the safety of what you know.\nThis isn’t for everyone.\nYou chose silence over the unknown.\n\nWho knows — the world is small. We may meet again another time.";
+
+    typeText(response, noAnswerText, () => {
+      setTimeout(() => {
+        response.style.transition = "opacity 2s ease";
+        response.style.opacity = '0';
+        setTimeout(() => {
+          response.style.display = "none";
+          setTimeout(() => {
+            matrixShutdownAnimation(() => {
+              window.close();
+            });
+          }, 0);
+        }, 1000);
+      }, 3000);
+    });
+  });
+
+yesButton.addEventListener('click', () => {
+  response.classList.add('flicker');
+  yesButton.classList.add('flicker');
+
+  response.style.color = '#660000';
+  yesButton.style.color = '#660000';
+
+  setTimeout(() => {
+    response.classList.remove('flicker');
+    yesButton.classList.remove('flicker');
+
+    response.style.opacity = '0';
+    yesButton.style.opacity = '0';
+
+    setTimeout(() => {
+      matrixShutdownAnimation(() => {
+        localStorage.setItem('introShown', 'true');
+        window.location.href = 'index.html';
+      });
+    }, 600);
+  }, 500);
+});
+
+  document.getElementById('skip-button').addEventListener('click', () => {
+    localStorage.setItem('introShown', 'true');
+    window.location.href = 'index.html';
+  });
+</script>
+</body>
+</html>

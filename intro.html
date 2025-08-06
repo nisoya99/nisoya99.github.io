@@ -296,6 +296,7 @@
         setTimeout(type, 60);
       } else {
         element.innerHTML = element.innerHTML.replace(/<span class="cursor">.*?<\/span>/, '');
+        element.innerHTML += '<span class="cursor">|</span>';
         isTyping = false;
         if (callback) callback();
       }
@@ -439,6 +440,7 @@ yesButton.addEventListener('click', () => {
 </body>
 
 </html>
+
 
 
 

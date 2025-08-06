@@ -269,7 +269,7 @@
 
   const questionText = isMobile
   ? "You feel something, don't you? There is more behind this screen. A fracture in the mask.\n\nDo you want to look deeper into me?"
-  : "You feel something, don't you?\nThere is more behind this screen. A fracture in the mask.\n\nDo you want to look deeper into me?"; 
+  : "You feel something, don't you?\nThere is more behind this screen.\nA fracture in the mask.\n\nDo you want to look deeper into me?"; 
 
   function typeText(element, text, callback) {
     let i = 0;
@@ -388,7 +388,7 @@
 
     const noAnswerText = isMobile
     ? "Then stay in the safety of what you know. This isn’t for everyone.\nYou chose silence over the unknown.\n\nWho knows — the world is small. We may meet again another time."
-    : "Then stay in the safety of what you know.\nThis isn’t for everyone.\nYou chose silence over the unknown.\n\nWho knows — the world is small. We may meet again another time.";
+    : "Then stay in the safety of what you know.\nThis isn’t for everyone.\nYou chose silence over the unknown.\n\nWho knows — the world is small.\nWe may meet again another time.";
 
     typeText(response, noAnswerText, () => {
       setTimeout(() => {
@@ -435,4 +435,5 @@ yesButton.addEventListener('click', () => {
   });
 </script>
 </body>
+
 </html>

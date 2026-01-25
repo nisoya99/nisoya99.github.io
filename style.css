@@ -62,7 +62,6 @@ nav a:hover {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  position: relative; /*neu*/
 }
 
 .post {
@@ -70,7 +69,7 @@ nav a:hover {
   padding: 20px;
   width: 100%; /*25*/
   max-width: 300px;
-  /*margin-bottom: 20px;*/
+  margin-bottom: 5px; /*20*/
   box-sizing: border-box;
   transition: transform 0.3s;
 }
@@ -294,5 +293,6 @@ footer {
     max-width: 18%;
   }
 }
+
 
 

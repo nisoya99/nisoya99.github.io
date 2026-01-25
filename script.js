@@ -3,6 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const filterTag = container?.dataset.filter || null;
 
   const posts = [
+    "budapest-2025.html",
     "paris-2025.html",
     "line-2024.html",
     "songoku-2023.html",
@@ -85,3 +86,4 @@ document.addEventListener("click", (e) => {
     lightboxImg.src = "";
   }
 });
+

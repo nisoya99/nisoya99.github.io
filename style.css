@@ -69,7 +69,7 @@ nav a:hover {
   padding: 20px;
   width: 100%; /*25*/
   max-width: 300px;
-  margin-bottom: 10px; /*20*/
+  margin-bottom: 20px;
   box-sizing: border-box;
   transition: transform 0.3s;
 }
@@ -276,23 +276,24 @@ footer {
 /* Tablets (768px – 1023px): 3 Spalten */
 @media (min-width: 768px) and (max-width: 1023px) {
   .post {
-    max-width: 28%;
+    max-width: 23%;
   }
 }
 
 /* Laptops (1024px – 1439px): 4 Spalten */
 @media (min-width: 1024px) and (max-width: 1599px) {
   .post {
-    max-width: 23%;
+    max-width: 15%;
   }
 }
 
 /* Desktops (ab 1440px): 5 Spalten */
 @media (min-width: 1600px) {
   .post {
-    max-width: 18%;
+    max-width: 10%;
   }
 }
+
 
 
 

@@ -55,13 +55,18 @@ nav a:hover {
 }
 
 #post-container {
-  max-width: 1600px;
+  /*max-width: 1600px;
   width: 100%;
   margin: 0 auto;
   padding: 20px;
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: center;*/
+  max-width: 1600px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 20px;
+  position: relative;
 }
 
 .post {
@@ -69,7 +74,7 @@ nav a:hover {
   padding: 20px;
   width: 100%; /*25*/
   max-width: 300px;
-  margin-bottom: 20px;
+  /*margin-bottom: 20px;*/
   box-sizing: border-box;
   transition: transform 0.3s;
 }
@@ -293,3 +298,4 @@ footer {
     max-width: 18%;
   }
 }
+

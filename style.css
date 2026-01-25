@@ -55,18 +55,14 @@ nav a:hover {
 }
 
 #post-container {
-  /*max-width: 1600px;
+  max-width: 1600px;
   width: 100%;
   margin: 0 auto;
   padding: 20px;
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;*/
-  max-width: 1600px;
-  width: 100%;
-  margin: 0 auto;
-  padding: 20px;
-  position: relative;
+  justify-content: center;
+  position: relative; /*neu*/
 }
 
 .post {
@@ -298,4 +294,5 @@ footer {
     max-width: 18%;
   }
 }
+
 

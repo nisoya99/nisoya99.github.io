@@ -3,6 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const filterTag = container?.dataset.filter || null;
 
   const posts = [
+    "kyoto-2025.html",
     "daikoku-2025.html",
     "kawaguchiko-2025.html",
     "budapest-2025.html",

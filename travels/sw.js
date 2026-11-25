@@ -1,7 +1,7 @@
 // Service Worker: macht die App installierbar und laedt die Oberflaeche schnell.
 // Bei Aenderungen an den Dateien die Versionsnummer erhoehen (v1 -> v2).
-const CACHE = 'travels-v1';
-const SHELL = ['./', './index.html', './style.css', './app.js', './config.js', './manifest.json', './assets/logo.png'];
+const CACHE = 'travels-v2';
+const SHELL = ['./', './index.html', './style.css', './app.js', './config.js', './manifest.json', './assets/profilepic.png'];
 
 self.addEventListener('install', (e) => {
   e.waitUntil(caches.open(CACHE).then((c) => c.addAll(SHELL)));

@@ -114,8 +114,8 @@ async function deleteAccount() {
 // ---------- Bildschirme ----------
 function authScreen() {
   const reg = S.mode === 'register';
-  return `<main><div class="hero"><img src="assets/logo.png" alt="nisoya99"><h1>Travels</h1>
-    <p class="s">by nisoya99<br>Every trip becomes a stamp in your passport.</p></div>
+  return `<main><div class="hero"><img src="assets/profilepic.png" alt="nisoya99"><h1>Travels</h1>
+    <p class="s">by nisoya99<br></p></div>
     <div class="seg"><button class="${reg ? '' : 'on'}" onclick="S.mode='login';render()">Log in</button>
     <button class="${reg ? 'on' : ''}" onclick="S.mode='register';render()">Sign up</button></div>
     ${reg ? `<label>Username</label><input id="un" autocapitalize="none" autocomplete="username" placeholder="e.g. elena_wanders">

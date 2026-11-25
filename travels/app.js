@@ -87,7 +87,7 @@ async function doRegister() {
   $('#go').disabled = false;
   if (error) return setMsg(errText(error));
   if (data.session) { S.user = data.user; await loadAll(); go('main', 'explore'); }
-  else setMsg('Almost done! We sent you a confirmation email. Click the link, then log in.', true);
+  else setMsg('Almost done! NSY99 sent you a confirmation email. Click the link, then log in.', true);
 }
 async function forgot() {
   const email = $('#em').value.trim();
@@ -104,8 +104,8 @@ async function setNewPw() {
 }
 async function logout() { await sb.auth.signOut(); S.user = null; S.profile = null; S.visits = []; S.mode = 'login'; go('login'); }
 async function deleteAccount() {
-  if (!confirm('Permanently delete your account and all entries?')) return;
-  if (!confirm('This cannot be undone. Really delete?')) return;
+  if (!confirm('Permanently delete your account and all travels?')) return;
+  if (!confirm('This cannot be undone. Are you sure?')) return;
   const { error } = await sb.rpc('delete_my_account');
   if (error) return toast('Error: ' + error.message);
   await sb.auth.signOut(); S.user = null; S.visits = []; go('login'); toast('Account deleted');
@@ -143,16 +143,16 @@ const statsHTML = () => `<div class="stats">
   <div class="stat" onclick="openStat('conts')"><b>${conts().length}/7</b><span>Continents</span></div></div>`;
 const visitRow = (v) => `<div class="card" onclick="S.detail='${v.id}';go('detail')"><div class="row"><b>${esc(v.city)}</b><span class="stars">${starsTxt(v.rating)}</span></div>
   <p class="s">${esc(v.country)} · ${esc(range(v))}</p><div style="margin-top:8px">${pills(v)}</div></div>`;
-const emptyHTML = '<div class="empty">No visits yet.<br>Tap + below and add your first city.</div>';
+const emptyHTML = '<div class="empty">You were nowhere...<br>Tap + below and add your first travel.</div>';
 
 function explore() {
   return `<main><h1>Explore</h1><p class="s" style="margin-bottom:14px">Your travel summary.</p>${statsHTML()}
     <h2>Recent visits</h2>${S.visits.length ? S.visits.slice(0, 5).map(visitRow).join('') : emptyHTML}
-    <div class="card"><b>Map</b><p class="s" style="margin-top:6px">The world map with zoom (numbers first, then city names) comes in the next step.</p></div></main>`;
+    <div class="card"><b>Map</b><p class="s" style="margin-top:6px">Travel on the map to explore your Frames.</p></div></main>`;
 }
 function places() {
   const by = {}; S.visits.forEach((v) => (by[v.country_code] ??= []).push(v));
-  return `<main><h1>Places</h1><p class="s" style="margin-bottom:14px">All the countries and cities you have been to.</p>
+  return `<main><h1>Places</h1><p class="s" style="margin-bottom:14px">All your Frames. Strets. Stories.</p>
     ${Object.keys(by).length ? Object.entries(by).map(([code, vs]) => `<div class="card">
       <div class="row" style="margin-bottom:8px;font-family:var(--hd);font-stretch:125%;font-size:17px" onclick="S.country='${code}';go('country')">
         <span>${esc(vs[0].country)} <span class="s">· ${vs.length} ${vs.length > 1 ? 'visits' : 'visit'}</span></span><span>›</span></div>
@@ -176,7 +176,7 @@ function detailScreen() {
       <p class="s" style="margin-top:10px">With: ${esc(v.companions || '–')} · Visible to: ${esc(VIS[v.visibility])}</p>
       <h2 style="margin-top:14px">Reflection</h2>
       <p class="s" style="font-style:italic;font-size:15px;color:var(--tx)">${v.note ? '«' + esc(v.note) + '»' : 'No reflection.'}</p></div>
-    <button class="btn danger" onclick="delVisit('${v.id}')">Delete visit</button></main>`;
+    <button class="btn danger" onclick="delVisit('${v.id}')">Delete Travel</button></main>`;
 }
 async function delVisit(id) {
   if (!confirm('Delete this visit?')) return;
@@ -253,7 +253,7 @@ function addScreen() {
     <div style="margin:-6px 0 12px">${['Food', 'Nature', 'Architecture', 'Nightlife', 'Affordable'].map((t) => `<button class="tag" onclick="addTag('${t}')">+ ${t}</button>`).join('')}</div>
     <label>Reflection (private)</label><textarea rows="4" placeholder="What will you remember?" oninput="S.draft.note=this.value">${esc(d.note)}</textarea>
     <label>Visible to</label><div id="vis" style="margin-top:6px">${visHTML()}</div>
-    <button class="btn" id="save" onclick="saveVisit()">Save visit</button></main>`;
+    <button class="btn" id="save" onclick="saveVisit()">Save Travel</button></main>`;
 }
 async function saveVisit() {
   const d = S.draft;
@@ -262,7 +262,7 @@ async function saveVisit() {
   $('#save').disabled = true;
   const p = d.place;
   const { data, error } = await sb.from('visits').insert({
-    city: p.name, country: p.country, country_code: p.country_code, continent: CONT[p.country_code] || 'Unbekannt',
+    city: p.name, country: p.country, country_code: p.country_code, continent: CONT[p.country_code] || 'Unknown',
     lat: p.lat, lon: p.lon, visited_from: d.from || null, visited_to: d.to || d.from || null,
     rating: d.stars || null, companions: d.who, highlights: d.tags, note: d.note || null, visibility: d.vis,
   }).select().single();
